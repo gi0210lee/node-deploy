@@ -59,11 +59,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
-
-if (process.env.NODE_ENV === 'production') {
-  
-  // sessionOption.cookie.secure = true;
-
 app.use(session(sessionOption));
 app.use(flash());
 app.use(passport.initialize());
@@ -90,5 +85,5 @@ app.use((err, req, res) => {
 });
 
 app.listen(app.get('port'), () => {
-  console.log(app.get('port'), '번 포트에서 대기중');
+  console.log(app.get('port'), '번 포트에서 대기 중');
 });
